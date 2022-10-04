@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+<script>
+function hotdogs() {
+  var x = prompt("Welcome to Joe's Hotdogs, how many hot dogs do you need? They're $4.25 each.", "0");
+  var y = prompt("How many fries do you need? They're $2.60 each.", "0");
+  var z = prompt("How many sodas do you need? They're $1.50 each.", "0");
+  var price = 4.25*x+2.60*y+1.50*z;
+  var discountprice = 0.9*price;
+  var taxprice = price*1.0625;
+  var taxdiscountprice = discountprice*1.0625;
+  if (price < 20) {
+    alert("The total price is $" + price + ".");
+    alert("Oh, and theres 6.25% Massachusetts meals tax too. Here's the final price: $" + taxprice + ".");
+  } else {
+    alert("The total price is $" + price + ". Joe is offering a special 10% off for orders above $20! Your discounted total is $" + discountprice + "!");
+    alert("Oh, and theres 6.25% Massachusetts meals tax too. Here's the final price: $" + taxdiscountprice + ".");
+  }
+}
+window.onload = hotdogs;  
+</script>
+</body>
+</html>
