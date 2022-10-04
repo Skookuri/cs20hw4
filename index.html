@@ -12,9 +12,16 @@ function hotdogs() {
   var y = prompt("How many fries do you need? They're $2.60 each.", "0");
   var z = prompt("How many sodas do you need? They're $1.50 each.", "0");
   var price = 4.25*x+2.60*y+1.50*z;
+  var price = price.toFixed(2);
+
   var discountprice = 0.9*price;
+  var discountprice = discountprice.toFixed(2);
+
   var taxprice = price*1.0625;
+  var taxprice = taxprice.toFixed(2);
+  
   var taxdiscountprice = discountprice*1.0625;
+  var taxdiscountprice = taxdiscountprice.toFixed(2);
   if (price < 20) {
     alert("The total price is $" + price + ".");
     alert("Oh, and theres 6.25% Massachusetts meals tax too. Here's the final price: $" + taxprice + ".");
