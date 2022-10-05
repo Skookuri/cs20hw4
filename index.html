@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Joe's Shop</title>
+  <title>Joe's Hotdogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style type="text/css">
     body {
-    background-color: tan;
+    transform: translateY(50%);
+    background-color: #E6E6FA;
     margin: auto;
     text-align: center;
+    border: 1px solid white;
+    width: 90%;
     }
     span {
     font-weight: bold;
     font-size: 6vw;
+    
+    }
+    
+    @media screen and (max-width: 767px) {
+         span {
+           font-size: 8vw;
+       }
+      }
+    
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+         span {
+            font-size: 6vw;
+         }
+    }
+    
+    @media screen and (min-width: 1024px) {
+         span {
+              font-size: 4vw;
+         }
     }
 
   </style>
@@ -55,10 +77,10 @@ function hotdogs() {
   document.getElementById("pricedisplay").innerHTML = "$" + price;
   if (price < 20) {
     document.getElementById("discountpricedisplay").innerHTML = "No discount";
-    document.getElementById("taxdisplay").innerHTML = "$" + taxprice;
+    document.getElementById("taxdisplay").innerHTML = " $" + taxprice;
   } else {
     document.getElementById("discountpricedisplay").innerHTML = "$" + discountprice;
-    document.getElementById("taxdisplay").innerHTML = "$" + taxdiscountprice;
+    document.getElementById("taxdisplay").innerHTML = " $" + taxdiscountprice;
   }
   
 
@@ -83,7 +105,7 @@ window.onload = hotdogs;
   <span id = 'discountpricedisplay'></span>
   <br>
   
-  <span>Final Price with Tax: </span>
+  <span style = "color: #5555dd; text-decoration: underline;">Final Price with Tax:</span>
   <span id = 'taxdisplay'></span>
   <br>
   
