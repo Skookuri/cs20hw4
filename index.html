@@ -5,8 +5,14 @@
   <meta name="viewport" content="width=device-width">
   <title>JS Bin</title>
   <style type="text/css">
+    body {
+    background-color: tan;
+    margin: auto;
+    text-align: center;
+    }
     span {
     font-weight: bold;
+    font-size: 6vw;
     }
 
   </style>
@@ -46,6 +52,17 @@ function hotdogs() {
   if (z) {
         document.getElementById('z').innerHTML = z;
   }
+  
+  document.getElementById("pricedisplay").innerHTML = "$" + price;
+  if (price < 20) {
+    document.getElementById("discountpricedisplay").innerHTML = "No discount";
+    document.getElementById("taxdisplay").innerHTML = "$" + taxprice;
+  } else {
+    document.getElementById("discountpricedisplay").innerHTML = "$" + discountprice;
+    document.getElementById("taxdisplay").innerHTML = "$" + taxdiscountprice;
+  }
+  
+
 }
 window.onload = hotdogs;  
 </script>
@@ -58,7 +75,18 @@ window.onload = hotdogs;
   <span>Sodas Ordered: </span>
   <span id = 'z'></span>
   <br>
-  <h4>Total Price: <h4>
+  
+  <span>Total Price: </span>
+  <span id = 'pricedisplay'></span>
   <br>
+  
+  <span>Discount: </span>
+  <span id = 'discountpricedisplay'></span>
+  <br>
+  
+  <span>Final Price with Tax: </span>
+  <span id = 'taxdisplay'></span>
+  <br>
+  
 </body>
 </html>
