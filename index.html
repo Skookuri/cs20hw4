@@ -4,13 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>JS Bin</title>
+  <style type="text/css">
+    span {
+    font-weight: bold;
+    }
+
+  </style>
 </head>
 <body>
 <script>
 function hotdogs() {
-  var x = prompt("Welcome to Joe's Hotdogs, how many hot dogs do you need? They're $4.25 each.", "0");
-  var y = prompt("How many fries do you need? They're $2.60 each.", "0");
-  var z = prompt("How many sodas do you need? They're $1.50 each.", "0");
+  var x = prompt("Welcome to Joe's Hotdogs, how many hot dogs do you need? They're $4.25 each.")
+  var y = prompt("How many fries do you need? They're $2.60 each.");
+  var z = prompt("How many sodas do you need? They're $1.50 each.");
   var price = 4.25*x+2.60*y+1.50*z;
   var price = price.toFixed(2);
 
@@ -29,8 +35,30 @@ function hotdogs() {
     alert("The total price is $" + price + ". Joe is offering a special 10% off for orders above $20! Your discounted total is $" + discountprice + "!");
     alert("Oh, and theres 6.25% Massachusetts meals tax too. Here's the final price: $" + taxdiscountprice + ".");
   }
+  
+  if (x) {
+        document.getElementById('x').innerHTML = x;
+  }
+  if (y) {
+        document.getElementById('y').innerHTML = y;
+  }
+  
+  if (z) {
+        document.getElementById('z').innerHTML = z;
+  }
 }
 window.onload = hotdogs;  
 </script>
+  <span>Hotdogs Ordered: </span>
+  <span id = 'x'></span>
+  <br>
+  <span>Fries Ordered: </span>
+  <span id = 'y'></span>
+  <br>
+  <span>Sodas Ordered: </span>
+  <span id = 'z'></span>
+  <br>
+  <h4>Total Price: <h4>
+  <br>
 </body>
 </html>
