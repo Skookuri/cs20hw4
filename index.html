@@ -40,13 +40,24 @@
 </head>
 <body>
 <script>
+function fixedWidthDecimal(num) {
+    let x = new String(num);
+    if (num % 1 == 0) {
+        x += ".00";
+    } else if ((num * 10) % 1 == 0) {
+        x += "0";
+    }
+    return x;
+}
+  
 function hotdogs() {
   var x = prompt("Welcome to Joe's Hotdogs, how many hot dogs do you need? They're $4.25 each.")
   var y = prompt("How many fries do you need? They're $2.60 each.");
   var z = prompt("How many sodas do you need? They're $1.50 each.");
+  
   var price = 4.25*x+2.60*y+1.50*z;
   var price = Math.round((price + Number.EPSILON) * 100) / 100;
-
+  
   var discountprice = 0.9*price;
   var discountprice = Math.round((discountprice + Number.EPSILON) * 100) / 100;
 
@@ -56,11 +67,11 @@ function hotdogs() {
   var taxdiscountprice = discountprice*1.0625;
   var taxdiscountprice = Math.round((taxdiscountprice + Number.EPSILON) * 100) / 100;
   if (price < 20) {
-    alert("The total price is $" + price + ".");
-    alert("Oh, and theres 6.25% Massachusetts meals tax too. Here's the final price: $" + taxprice + ".");
+    alert("The total price is $" + fixedWidthDecimal(price) + ".");
+    alert("Oh, and theres 6.25% Massachusetts meals tax too. Here's the final price: $" + fixedWidthDecimal(taxprice) + ".");
   } else {
-    alert("The total price is $" + price + ". Joe is offering a special 10% off for orders above $20! Your discounted total is $" + discountprice + "!");
-    alert("Oh, and theres 6.25% Massachusetts meals tax too. Here's the final price: $" + taxdiscountprice + ".");
+    alert("The total price is $" + fixedWidthDecimal(price) + ". Joe is offering a special 10% off for orders above $20! Your discounted total is $" + discountprice + "!");
+    alert("Oh, and theres 6.25% Massachusetts meals tax too. Here's the final price: $" + fixedWidthDecimal(taxdiscountprice) + ".");
   }
   
   if (x) {
@@ -74,13 +85,13 @@ function hotdogs() {
         document.getElementById('z').innerHTML = z + " soda";
   }
   
-  document.getElementById("pricedisplay").innerHTML = "$" + price;
+  document.getElementById("pricedisplay").innerHTML = "$" + fixedWidthDecimal(price);
   if (price < 20) {
     document.getElementById("discountpricedisplay").innerHTML = "No discount";
-    document.getElementById("taxdisplay").innerHTML = " $" + taxprice;
+    document.getElementById("taxdisplay").innerHTML = " $" + fixedWidthDecimal(taxprice);
   } else {
-    document.getElementById("discountpricedisplay").innerHTML = "$" + discountprice;
-    document.getElementById("taxdisplay").innerHTML = " $" + taxdiscountprice;
+    document.getElementById("discountpricedisplay").innerHTML = "$" + fixedWidthDecimal(discountprice);
+    document.getElementById("taxdisplay").innerHTML = " $" + fixedWidthDecimal(taxdiscountprice);
   }
   
 
